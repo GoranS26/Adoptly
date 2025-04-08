@@ -15,7 +15,7 @@ struct IntroductionView: View {
     @State private var offset: CGFloat = 0
     
     var body: some View {
-        NavigationView {
+        NavigationStack{
             ZStack {
                 Color.cyan.opacity(0.8).ignoresSafeArea()
                 VStack {
@@ -89,6 +89,7 @@ struct IntroductionView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

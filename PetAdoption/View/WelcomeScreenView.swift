@@ -13,7 +13,7 @@ struct WelcomeScreenView: View {
     
 
     var body: some View {
-        NavigationView {
+        NavigationStack{
             ZStack {
                 Image("background")
                     .resizable()
@@ -66,7 +66,7 @@ struct WelcomeScreenView: View {
            
             
         }
-        
+        .navigationBarBackButtonHidden(true)
     }
 }
 

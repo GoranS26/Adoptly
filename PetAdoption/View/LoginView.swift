@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State  var email: String = ""
+    @State  var password: String = ""
     private var users = [
         (role: "Adopter", symbol: "person.fill"),
         (role: "Shelter", symbol: "house.fill")
@@ -18,7 +18,7 @@ struct LoginView: View {
     @State private var selectedUser: String = "Adopter"
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ZStack{
                 Color.cyan.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
@@ -32,9 +32,8 @@ struct LoginView: View {
                         .frame(width: 300, height: 150)
                         .padding(.leading, 35)
                         .padding(.top, 50)
-                        
-                        
                     Spacer()
+                    
                     //Email view
                     TextField("", text: $email, prompt:
                                 Text("Enter your email").foregroundStyle(.white).fontDesign(.monospaced))
@@ -47,7 +46,6 @@ struct LoginView: View {
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
-                    
                     
                     //Password view
                     SecureField("", text: $password, prompt:
@@ -67,7 +65,6 @@ struct LoginView: View {
                         .frame(width: 300, height: 2)
                         .background(Color.white)
                         
-                    
                     Text("Choose your account")
                         .font(.callout)
                         .foregroundStyle(.white)
@@ -79,6 +76,7 @@ struct LoginView: View {
                             HStack(spacing: 10){
                                 Image(systemName: user.symbol)
                                 Text(user.role)
+                                    
                             }
                         }
                     }
@@ -91,6 +89,7 @@ struct LoginView: View {
                     .pickerStyle(MenuPickerStyle())
                     .tint(.white)
                     
+                    
                     Text("Don't have account?")
                         .foregroundStyle(.white)
                         .fontDesign(.monospaced)
@@ -100,18 +99,14 @@ struct LoginView: View {
                             .fontDesign(.monospaced)
                            
                     }
-                    
                     Spacer()
-                    
-                    
                 }
-                
-              }
+            }
         }
        
-        
-        }
+        .navigationBarBackButtonHidden(true)
     }
+}
 
 #Preview {
     LoginView()
