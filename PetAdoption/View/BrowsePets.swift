@@ -23,11 +23,12 @@ struct BrowsePets: View {
                     .background(Color.gray.opacity(0.6))
                     .frame(width: 300, height: 150)
                     .foregroundStyle(.white)
-                    
+                    Spacer()
                 
             }
             
         }
+        
        
     }
     

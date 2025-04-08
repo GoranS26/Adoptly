@@ -14,6 +14,7 @@
 		53F4F09A2D0CE2AB00C8B17F /* Exceptions for "PetAdoption" folder in "PetAdoption" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				"Preview Content/Preview Assets.xcassets",
 			);
 			target = 53F4F0772D0CD28400C8B17F /* PetAdoption */;

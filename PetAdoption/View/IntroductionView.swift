@@ -7,7 +7,7 @@
 ////
 
 import SwiftUI
-import SDWebImageSwiftUI
+
 
 struct IntroductionView: View {
     @State private var selectedPage = 0
@@ -19,7 +19,7 @@ struct IntroductionView: View {
             ZStack {
                 Color.cyan.opacity(0.8).ignoresSafeArea()
                 VStack {
-                    NavigationLink(destination: BrowsePets(), isActive: $navigate) {
+                    NavigationLink(destination: LoginView(), isActive: $navigate) {
                         EmptyView()
                     }
                     .hidden()
@@ -31,7 +31,7 @@ struct IntroductionView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.bottom)
-                            Text("Browse our pets and find your \n new best friend anywhere in Austria")
+                            Text("Browse pets from animal sheltes around Austria and EU and find your \n new best friend anywhere in Austria")
                                 .multilineTextAlignment(.center)
                                 .font(.caption)
                                 .foregroundColor(.white)
@@ -105,3 +105,5 @@ struct PetSearchView: View {
 #Preview {
     IntroductionView()
 }
+
+

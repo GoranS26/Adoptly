@@ -25,11 +25,10 @@ struct WelcomeScreenView: View {
                         .padding(.top, 50)
                     
                     Image("pets")
-//                        .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 550)
                         .padding(.bottom, -50)
-                        .scaleEffect(pulsing ? 1.01 : 1)
+                        .scaleEffect(pulsing ? 1.02 : 1)
                         .animation(Animation.easeInOut(duration: 0.6)
                                 .repeatForever(autoreverses: true), value: pulsing)
                         .onAppear {
@@ -56,10 +55,8 @@ struct WelcomeScreenView: View {
                                 .shadow(radius: 10)
                                 
                     }
-                    
                     .padding(.top, 75)
                     Spacer()
-                   
 //                    .padding(.top)
 //                    .padding(.bottom, 50) // Add extra bottom padding if necessary
                     
