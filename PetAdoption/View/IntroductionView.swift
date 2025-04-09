@@ -23,7 +23,6 @@ struct IntroductionView: View {
                         EmptyView()
                     }
                     .hidden()
-                    
                     TabView(selection: $selectedPage) {
                         VStack {
                             Text("Welcome to Adoptly!")
@@ -31,15 +30,17 @@ struct IntroductionView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .padding(.bottom)
-                            Text("Browse pets from animal sheltes around Austria and EU and find your \n new best friend anywhere in Austria")
+                            //Small pet picture goes between
+                            Text("Browse pets from animal shelters around Austria and EU and find your \n new best friend anywhere in Austria")
                                 .multilineTextAlignment(.center)
-                                .font(.caption)
+                                .font(.callout)
                                 .foregroundColor(.white)
                         }
                         .tag(0)
 
                         VStack {
                             Text("With just a few steps!")
+                            //Small pet picture goes between
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
@@ -51,12 +52,12 @@ struct IntroductionView: View {
                         .tag(1)
                         
                         ZStack {
-                            RoundedRectangle(cornerRadius: 20)
+                            RoundedRectangle(cornerRadius: 50)
                                 .fill(Color.cyan.opacity(0.5))
                                 .frame(width: 250, height: 100)
                                 .overlay(
                                     VStack(spacing: 10){
-                                        Text("Swipe to Explore")
+                                        Text("Swipe me to start")
                                             .font(.title2)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)
