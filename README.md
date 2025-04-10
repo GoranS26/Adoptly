@@ -28,7 +28,7 @@ While researching pet adoption, I noticed that many platforms are outdated, hard
 
 - Swift
 - SwiftUI
-- MVVM architecture (planned)
+- MVVM architecture 
 - Core Data (for storing favorites)
 - Possibly MapKit & Firebase later on
 
