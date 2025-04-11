@@ -24,7 +24,7 @@ struct LoginView: View {
                 VStack(spacing: 20) {
                     Spacer()
                     Text("Please Login")
-                        .font(.largeTitle)
+                        .font(.title)
                         .fontDesign(.monospaced)
                         .padding()
                         .foregroundStyle(.white)
