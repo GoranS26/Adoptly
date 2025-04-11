@@ -45,7 +45,7 @@ struct IntroductionView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             Text("Type your location, \n shelter type, and search for your perfect pet")
-                                .font(.caption)
+                                .font(.callout)
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
                         }
