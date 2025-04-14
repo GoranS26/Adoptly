@@ -20,9 +20,9 @@ struct WelcomeScreenView: View {
                     .ignoresSafeArea()
                 VStack{
                     Text("ADOPTLY")
-                        .font(.system(size: 60, weight: .heavy, design: .rounded))
+                        .font(.system(size: 30, weight: .heavy, design: .rounded))
                         .foregroundStyle(.white)
-                        .padding(.top, 10)
+                        .padding(.top, 50)
                     
                     Image("pets")
                         .aspectRatio(contentMode: .fill)

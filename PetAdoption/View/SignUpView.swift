@@ -89,8 +89,8 @@ struct SignUpView: View {
                     Spacer()
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
