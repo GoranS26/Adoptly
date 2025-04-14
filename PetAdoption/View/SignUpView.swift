@@ -31,41 +31,48 @@ struct SignUpView: View {
                         .padding(.bottom, 100)
                         ZStack{
                             HStack(spacing: 35){
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.cyan.opacity(0.5))
-                                    .frame(width: 150, height: 150)
-                                    .overlay {
-                                        VStack{
-                                            Image(systemName: "person.fill")
-                                                .foregroundStyle(.white)
-                                                .font(.title2)
-                                            Text("Adopter")
-                                                .foregroundStyle(.white)
-                                                .fontDesign(.monospaced)
-                                                .font(.title2)
-                                                .padding(.bottom, 10)
+                                NavigationLink(destination: AdopterSignUpView()){
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.cyan.opacity(0.5))
+                                        .frame(width: 150, height: 150)
+                                        .overlay {
+                                            VStack{
+                                                Image(systemName: "person.fill")
+                                                    .foregroundStyle(.white)
+                                                    .font(.title2)
+                                                Text("Adopter")
+                                                    .foregroundStyle(.white)
+                                                    .fontDesign(.monospaced)
+                                                    .font(.title2)
+                                                    .padding(.bottom, 10)
+                                            }
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.white, lineWidth: 3)
                                         }
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.white, lineWidth: 3)
-                                    }
+                                }
+                                .navigationBarBackButtonHidden(true)
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.cyan.opacity(0.5))
-                                    .frame(width: 150, height: 150)
-                                    .overlay {
-                                        VStack{
-                                            Image(systemName: "house.lodge.fill")
-                                                .foregroundStyle(.white)
-                                                .font(.title2)
-                                            Text("Shelter")
-                                                .foregroundStyle(.white)
-                                                .fontDesign(.monospaced)
-                                                .font(.title2)
-                                                .padding(.bottom, 10)
+                                NavigationLink(destination: ShelterSignUpView()){
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.cyan.opacity(0.5))
+                                        .frame(width: 150, height: 150)
+                                        .overlay {
+                                            VStack{
+                                                Image(systemName: "house.lodge.fill")
+                                                    .foregroundStyle(.white)
+                                                    .font(.title2)
+                                                Text("Shelter")
+                                                    .foregroundStyle(.white)
+                                                    .fontDesign(.monospaced)
+                                                    .font(.title2)
+                                                    .padding(.bottom, 10)
+                                            }
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.white, lineWidth: 3)
                                         }
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.white, lineWidth: 3)
-                                    }
+                                }
+                                .navigationBarBackButtonHidden(true)
+                                
                             }
                         }
                     Spacer()
