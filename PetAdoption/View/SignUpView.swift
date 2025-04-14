@@ -23,7 +23,7 @@ struct SignUpView: View {
                         .fontDesign(.monospaced)
                         .font(.largeTitle)
                         .padding(.bottom, 20)
-                   Text("Which account would you like to make?")
+                   Text("Who you want to become today?")
                         .foregroundStyle(.white)
                         .fontDesign(.monospaced)
                         .font(.title3)
