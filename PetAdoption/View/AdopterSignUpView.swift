@@ -167,7 +167,7 @@ struct AdopterSignUpView: View {
                     .padding(.top)
                     // Repeat Password Field
                     SecureField("", text: $repeatPassword, prompt:
-                                    Text("Again your password").foregroundStyle(.white).fontDesign(.monospaced))
+                                    Text("Password again, please...").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 300, height: 50)
