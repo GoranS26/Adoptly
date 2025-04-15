@@ -31,7 +31,7 @@ struct IntroductionView: View {
                                 .foregroundColor(.white)
                                 .padding(.bottom)
                             //Small pet picture goes between
-                            Text("Browse pets from animal shelters around Austria and EU and find your \n new best friend anywhere in Austria")
+                            Text("Browse pets from animal shelters around EU \nand find your new best friend anywhere in Austria")
                                 .multilineTextAlignment(.center)
                                 .font(.callout)
                                 .foregroundColor(.white)
@@ -44,6 +44,7 @@ struct IntroductionView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
+                                .padding(.bottom)
                             Text("Type your location, \n shelter type, and search for your perfect pet")
                                 .font(.callout)
                                 .foregroundColor(.white)
@@ -69,7 +70,7 @@ struct IntroductionView: View {
                                 .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: offset)
                                 .onAppear {
                                     offset = 20
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                         offset = -20
                                     }
                                 }
@@ -86,7 +87,7 @@ struct IntroductionView: View {
                     }
                     .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
-                    .frame(height: 250)
+                    
                 }
             }
         }
