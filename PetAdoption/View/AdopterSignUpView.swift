@@ -41,7 +41,6 @@ struct AdopterSignUpView: View {
                     .padding()
                     .textContentType(.name)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -49,6 +48,7 @@ struct AdopterSignUpView: View {
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: nameAppear)
                     .padding(.top)
+                    
                     // Email Field
                     TextField("", text: $email, prompt:
                                 Text("Now your email").foregroundStyle(.white).fontDesign(.monospaced))
@@ -56,7 +56,6 @@ struct AdopterSignUpView: View {
                     .padding()
                     .textContentType(.emailAddress)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -64,13 +63,13 @@ struct AdopterSignUpView: View {
                     .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: emailAppear)
                     .padding(.top)
+                    
                     // Password Field
                     SecureField("", text: $password, prompt:
                                     Text("And your password").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -79,13 +78,13 @@ struct AdopterSignUpView: View {
                     .animation(.easeInOut(duration: 0.9), value: passwordAppear)
                     .foregroundStyle(.white)
                     .padding(.top)
+                    
                     // Repeat Password Field
                     SecureField("", text: $repeatPassword, prompt:
                                     Text("Password again, please...").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
