@@ -31,7 +31,7 @@ struct ShelterSignUpView: View {
                 .frame(width: 300, height: 50)
                 .clipShape(Capsule())
                 .overlay(
-                    Capsule().stroke(Color.white, lineWidth: 2)
+                    Capsule().stroke(Color.white, lineWidth: 3)
                 )
 //                .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
 //                .animation(.easeInOut(duration: 0.9), value: emailAppear)
