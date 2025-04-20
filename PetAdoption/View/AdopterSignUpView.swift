@@ -49,7 +49,7 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 1.1), value: nameAppear)
+                    .animation(.easeInOut(duration: 1.0), value: nameAppear)
 
                     
                     // Email Field
@@ -64,7 +64,7 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 1.1), value: emailAppear)
+                    .animation(.easeInOut(duration: 1.0), value: emailAppear)
 
                     
                     // Password Field
@@ -78,7 +78,7 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: passwordAppear ? 0 : -UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 1.1), value: passwordAppear)
+                    .animation(.easeInOut(duration: 1.0), value: passwordAppear)
                     .foregroundStyle(.white)
                     
                     // Repeat Password Field
@@ -92,7 +92,7 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: repeatPasswordAppear ? 0 : UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 1.1), value: repeatPasswordAppear)
+                    .animation(.easeInOut(duration: 1.0), value: repeatPasswordAppear)
                     .foregroundStyle(.white)
                     
                     //Sign up button view
