@@ -22,32 +22,36 @@ struct AdopterSignUpView: View {
         NavigationStack{
             ZStack {
                 Color.cyan.opacity(0.8).ignoresSafeArea()
-
+                Divider()
+                    .frame(width: .infinity, height: 4)
+                    .background(Color.black)
+                    
                 VStack {
+                    
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
-                        .padding(.top, 30)
+                        .padding(.top, 65)
 
                     Image("cutecat")
                         .resizable()
-                        .frame(width: 250, height: 250)
-
+                        .frame(width: .infinity)
+                        .padding(.bottom, 33)
                     // Name Field
                     TextField("", text: $name, prompt:
                                 Text("Can you tell me your name").foregroundStyle(.white).fontDesign(.monospaced))
                     .foregroundStyle(.white)
                     .padding()
                     .textContentType(.name)
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350)
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: nameAppear)
-                    .padding(.top)
+//                    .padding(.top)
                     
                     // Email Field
                     TextField("", text: $email, prompt:
@@ -55,21 +59,21 @@ struct AdopterSignUpView: View {
                     .foregroundStyle(.white)
                     .padding()
                     .textContentType(.emailAddress)
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350)
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: emailAppear)
-                    .padding(.top)
+//                    .padding(.top)
                     
                     // Password Field
                     SecureField("", text: $password, prompt:
                                     Text("And your password").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350)
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -77,14 +81,14 @@ struct AdopterSignUpView: View {
                     .offset(x: passwordAppear ? 0 : -UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: passwordAppear)
                     .foregroundStyle(.white)
-                    .padding(.top)
+//                    .padding(.top)
                     
                     // Repeat Password Field
                     SecureField("", text: $repeatPassword, prompt:
                                     Text("Password again, please...").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350)
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -92,16 +96,19 @@ struct AdopterSignUpView: View {
                     .offset(x: repeatPasswordAppear ? 0 : UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 0.9), value: repeatPasswordAppear)
                     .foregroundStyle(.white)
-                    .padding(.top)
-                    
+//                    .padding(.top)
+                   
                     Spacer()
                 }
+                Spacer()
                 .onAppear {
                     animatedFieldAppear()
+                    
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
+        
         
     }
     func animatedFieldAppear() {
