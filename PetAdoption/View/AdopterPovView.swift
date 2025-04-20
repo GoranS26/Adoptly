@@ -9,7 +9,21 @@ import SwiftUI
 
 struct AdopterPovView: View {
     var body: some View {
-        Text("In progress")
+        
+        ZStack {
+            Color.cyan.opacity(0.8).ignoresSafeArea()
+            
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Adopter POV")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                
+                Text("This is the Adopter POV view.")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+        }
+        
     }
 }
 
