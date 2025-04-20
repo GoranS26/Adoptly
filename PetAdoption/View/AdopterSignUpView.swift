@@ -23,24 +23,24 @@ struct AdopterSignUpView: View {
             ZStack {
                 Color.cyan.opacity(0.8).ignoresSafeArea()
                 Divider()
-                    .frame(width: .infinity, height: 4)
+                    .frame(width: .infinity, height: 5)
                     .background(Color.black)
-                    
+                    .padding(.bottom, 98)
                 VStack {
                     
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
-                        .padding(.top, 65)
+                        .padding(.top)
+                       
 
                     Image("cutecat")
-                        .resizable()
-                        .frame(width: .infinity)
-                        .padding(.bottom, 33)
+                        .frame(height: 258)
+                    Spacer()
                     // Name Field
                     TextField("", text: $name, prompt:
-                                Text("Can you tell me your name").foregroundStyle(.white).fontDesign(.monospaced))
+                                Text("Can you tell me your name...").foregroundStyle(.white).fontDesign(.monospaced))
                     .foregroundStyle(.white)
                     .padding()
                     .textContentType(.name)
@@ -55,7 +55,7 @@ struct AdopterSignUpView: View {
                     
                     // Email Field
                     TextField("", text: $email, prompt:
-                                Text("Now your email").foregroundStyle(.white).fontDesign(.monospaced))
+                                Text("Now your email...").foregroundStyle(.white).fontDesign(.monospaced))
                     .foregroundStyle(.white)
                     .padding()
                     .textContentType(.emailAddress)
@@ -70,7 +70,7 @@ struct AdopterSignUpView: View {
                     
                     // Password Field
                     SecureField("", text: $password, prompt:
-                                    Text("And your password").foregroundStyle(.white).fontDesign(.monospaced))
+                                    Text("And your password...").foregroundStyle(.white).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 350)
@@ -97,7 +97,17 @@ struct AdopterSignUpView: View {
                     .animation(.easeInOut(duration: 0.9), value: repeatPasswordAppear)
                     .foregroundStyle(.white)
 //                    .padding(.top)
-                   
+                    NavigationLink(destination: AdopterPovView()) {
+                        Text("Sign Up")
+                            .font(.title3)
+                            .foregroundStyle(.white)
+                            .fontDesign(.monospaced)
+                            .overlay(
+                                Capsule().stroke(Color.white, lineWidth: 2)
+                                    .frame(width: 200, height: 35)
+                            )
+                            .padding(.top)
+                    }
                     Spacer()
                 }
                 Spacer()
