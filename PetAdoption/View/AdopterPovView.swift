@@ -18,7 +18,7 @@ struct AdopterPovView: View {
                     .font(.largeTitle)
                     .foregroundColor(.white)
                 
-                Text("This is the Adopter POV view.")
+                Text("This is the Adopter POV view and it's still work in progress.")
                     .font(.headline)
                     .foregroundColor(.white)
             }
