@@ -12,6 +12,7 @@ struct AdopterSignUpView: View {
     @State private var emailAppear: Bool = false
     @State private var passwordAppear: Bool = false
     @State private var repeatPasswordAppear: Bool = false
+    @State private var signUpButtonAppear: Bool = false
     
     @State private var name: String = ""
     @State private var email: String = ""
@@ -27,17 +28,15 @@ struct AdopterSignUpView: View {
                     .background(Color.black)
                     .padding(.bottom, 98)
                 VStack {
-                    
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
                         .padding(.top)
-                       
-
                     Image("cutecat")
                         .frame(height: 258)
                     Spacer()
+                    
                     // Name Field
                     TextField("", text: $name, prompt:
                                 Text("Can you tell me your name...").foregroundStyle(.white).fontDesign(.monospaced))
@@ -50,8 +49,8 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 0.9), value: nameAppear)
-//                    .padding(.top)
+                    .animation(.easeInOut(duration: 1.1), value: nameAppear)
+
                     
                     // Email Field
                     TextField("", text: $email, prompt:
@@ -65,8 +64,8 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 0.9), value: emailAppear)
-//                    .padding(.top)
+                    .animation(.easeInOut(duration: 1.1), value: emailAppear)
+
                     
                     // Password Field
                     SecureField("", text: $password, prompt:
@@ -79,9 +78,8 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: passwordAppear ? 0 : -UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 0.9), value: passwordAppear)
+                    .animation(.easeInOut(duration: 1.1), value: passwordAppear)
                     .foregroundStyle(.white)
-//                    .padding(.top)
                     
                     // Repeat Password Field
                     SecureField("", text: $repeatPassword, prompt:
@@ -94,9 +92,10 @@ struct AdopterSignUpView: View {
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .offset(x: repeatPasswordAppear ? 0 : UIScreen.main.bounds.width)
-                    .animation(.easeInOut(duration: 0.9), value: repeatPasswordAppear)
+                    .animation(.easeInOut(duration: 1.1), value: repeatPasswordAppear)
                     .foregroundStyle(.white)
-//                    .padding(.top)
+                    
+                    //Sign up button view
                     NavigationLink(destination: AdopterPovView()) {
                         Text("Sign Up")
                             .font(.title3)
@@ -107,9 +106,12 @@ struct AdopterSignUpView: View {
                                     .frame(width: 200, height: 35)
                             )
                             .padding(.top)
+                            .offset(y: signUpButtonAppear ? 0 : UIScreen.main.bounds.height)
+                            .animation(.easeInOut(duration: 1.2), value: signUpButtonAppear)
                     }
                     Spacer()
                 }
+                
                 Spacer()
                 .onAppear {
                     animatedFieldAppear()
@@ -134,6 +136,9 @@ struct AdopterSignUpView: View {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             repeatPasswordAppear = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            signUpButtonAppear = true
         }
     }
 }
