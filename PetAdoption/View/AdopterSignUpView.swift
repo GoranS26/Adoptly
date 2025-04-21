@@ -27,14 +27,17 @@ struct AdopterSignUpView: View {
                     .frame(width: .infinity, height: 5)
                     .background(Color.black)
                     .padding(.bottom, 98)
+                    .shadow(color: .black.opacity(0.5), radius: 5)
                 VStack {
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
                         .padding(.top)
+                        .shadow(color: .black, radius: 4)
                     Image("cutecat")
                         .frame(height: 258)
+                        .shadow(color: .black, radius: 5)
                     Spacer()
                     
                     // Name Field
@@ -50,6 +53,7 @@ struct AdopterSignUpView: View {
                     )
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 1.0), value: nameAppear)
+                    
 
                     
                     // Email Field
@@ -111,6 +115,7 @@ struct AdopterSignUpView: View {
                     }
                     Spacer()
                 }
+                
                 
                 Spacer()
                 .onAppear {
