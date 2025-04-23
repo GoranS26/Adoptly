@@ -67,6 +67,4 @@ I’m passionate about great UI, practical apps, and learning through building r
 
 ---
 
-## 📄 License
 
-MIT License — feel free to explore and learn from this project!
