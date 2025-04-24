@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct AdopterSignUpView: View {
+    //Animation
+    
     @State private var nameAppear: Bool = false
     @State private var emailAppear: Bool = false
     @State private var passwordAppear: Bool = false
     @State private var repeatPasswordAppear: Bool = false
     @State private var signUpButtonAppear: Bool = false
+    //Error handling
+    
+    @State private var errorMessage: String? = nil
+    @State private var showAlert = false
+    @State private var shouldNavigate = false
+    //User input
     
     @State private var name: String = ""
     @State private var email: String = ""
@@ -27,16 +35,17 @@ struct AdopterSignUpView: View {
                     .frame(width: .infinity, height: 5)
                     .background(Color.black)
                     .padding(.bottom, 98)
-                    .shadow(color: .black.opacity(0.5), radius: 5)
+                    .shadow(color: .black, radius: 5)
                 VStack {
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
                         .padding(.top)
-                        .shadow(color: .black, radius: 4)
+                        .shadow(color: .black, radius: 2)
                     Image("cutecat")
-                        .frame(height: 258)
+                        .resizable()
+                        .scaledToFit()
                         .shadow(color: .black, radius: 5)
                     Spacer()
                     
@@ -109,9 +118,9 @@ struct AdopterSignUpView: View {
                                 Capsule().stroke(Color.white, lineWidth: 2)
                                     .frame(width: 200, height: 35)
                             )
-                            .padding(.top)
+                            .padding(.top, 50)
                             .offset(y: signUpButtonAppear ? 0 : UIScreen.main.bounds.height)
-                            .animation(.easeInOut(duration: 1.2), value: signUpButtonAppear)
+                            .animation(.easeInOut(duration: 1.1), value: signUpButtonAppear)
                     }
                     Spacer()
                 }
@@ -142,10 +151,41 @@ struct AdopterSignUpView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             repeatPasswordAppear = true
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             signUpButtonAppear = true
         }
     }
+    
+    func validateSignUp() {
+        if name.trimmingCharacters(in: .whitespaces).isEmpty {
+            errorMessage = "Please enter your name"
+            showAlert = true
+            return
+        }
+        
+        if !email.contains("@") || !email.contains(".") {
+            errorMessage = "Please enter a valid email address"
+            showAlert = true
+            return
+        }
+        
+        if password.count < 8 {
+            errorMessage = "Password must be at least 8 characters long"
+            showAlert = true
+            return
+        }
+        
+        if password != repeatPassword {
+            errorMessage = "Passwords do not match"
+            showAlert = true
+            return
+        }
+        
+        // ✅ If all is good:
+        errorMessage = nil
+        shouldNavigate = true
+    }
+
 }
 
 #Preview {
