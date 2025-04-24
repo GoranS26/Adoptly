@@ -30,17 +30,23 @@ struct AdopterSignUpView: View {
     var body: some View {
         NavigationStack{
             ZStack {
-                Color.cyan.opacity(0.8).ignoresSafeArea()
+//                Color.blue.opacity(0.8).ignoresSafeArea()
+                LinearGradient(
+                    gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                    )
+                .ignoresSafeArea()
+                    
                 Divider()
                     .frame(width: .infinity, height: 5)
                     .background(Color.black)
-                    .padding(.bottom, 98)
+                    .padding(.bottom, 120)
                     .shadow(color: .black, radius: 5)
                 VStack {
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
-                        .font(.largeTitle)
-                        .fontDesign(.monospaced)
+                        .font(.system(size: 40, weight: .bold, design: .rounded))
                         .padding(.top)
                         .shadow(color: .black, radius: 2)
                     Image("cutecat")
@@ -52,33 +58,36 @@ struct AdopterSignUpView: View {
                     // Name Field
                     TextField("", text: $name, prompt:
                                 Text("Can you tell me your name...").foregroundStyle(.white).fontDesign(.monospaced))
-                    .foregroundStyle(.white)
                     .padding()
                     .textContentType(.name)
                     .frame(width: 350)
+//                    .background(Color.cyan.opacity(0.9))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
+                    
+                    
                     .offset(x: nameAppear ? 0 : -UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 1.0), value: nameAppear)
                     
-
+                    
                     
                     // Email Field
                     TextField("", text: $email, prompt:
-                                Text("Now your email...").foregroundStyle(.white).fontDesign(.monospaced))
-                    .foregroundStyle(.white)
+                                Text("Now your email...").foregroundStyle(.cyan).fontDesign(.monospaced))
+                    .foregroundStyle(.cyan)
                     .padding()
                     .textContentType(.emailAddress)
                     .frame(width: 350)
+                    .background(Color(.white))
                     .clipShape(Capsule())
                     .overlay(
-                        Capsule().stroke(Color.white, lineWidth: 2)
+                        Capsule().stroke(Color.cyan, lineWidth: 2)
                     )
                     .offset(x: emailAppear ? 0 : UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 1.0), value: emailAppear)
-
+                    
                     
                     // Password Field
                     SecureField("", text: $password, prompt:
@@ -86,6 +95,7 @@ struct AdopterSignUpView: View {
                     .padding()
                     .textContentType(.password)
                     .frame(width: 350)
+//                    .background(Color.cyan.opacity(1))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -96,45 +106,60 @@ struct AdopterSignUpView: View {
                     
                     // Repeat Password Field
                     SecureField("", text: $repeatPassword, prompt:
-                                    Text("Password again, please...").foregroundStyle(.white).fontDesign(.monospaced))
+                                    Text("Password again, please...").foregroundStyle(.cyan).fontDesign(.monospaced))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 350)
+                    .background(Color.white.opacity(1))
                     .clipShape(Capsule())
                     .overlay(
-                        Capsule().stroke(Color.white, lineWidth: 2)
+                        Capsule().stroke(Color.cyan, lineWidth: 2)
                     )
                     .offset(x: repeatPasswordAppear ? 0 : UIScreen.main.bounds.width)
                     .animation(.easeInOut(duration: 1.0), value: repeatPasswordAppear)
                     .foregroundStyle(.white)
                     
                     //Sign up button view
-                    NavigationLink(destination: AdopterPovView()) {
+                    Button {
+                        validateSignUp()
+                    } label: {
                         Text("Sign Up")
                             .font(.title3)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.cyan)
                             .fontDesign(.monospaced)
+                            .frame(width: 200, height: 40)
+                            .background(Color.white.opacity(1))
+                            .cornerRadius(20)
                             .overlay(
-                                Capsule().stroke(Color.white, lineWidth: 2)
-                                    .frame(width: 200, height: 35)
+                                Capsule().stroke(Color.cyan, lineWidth: 2)
                             )
                             .padding(.top, 50)
                             .offset(y: signUpButtonAppear ? 0 : UIScreen.main.bounds.height)
                             .animation(.easeInOut(duration: 1.1), value: signUpButtonAppear)
+                        
+                    }
+                    NavigationLink(destination: AdopterPovView(), isActive: $shouldNavigate){
+                        EmptyView()
                     }
                     Spacer()
-                }
-                
-                
-                Spacer()
-                .onAppear {
-                    animatedFieldAppear()
+                        .onAppear {
+                            animatedFieldAppear()
+                            
+                 }
                     
                 }
+                
             }
+            .alert("Error", isPresented: $showAlert, actions: {
+                Button("OK", role: .cancel) {}
+            }, message: {
+                Text(errorMessage ?? "Something went wrong")
+            })
+            
+            .navigationBarBackButtonHidden(true)
+            
+            
         }
-        .navigationBarBackButtonHidden(true)
-        
         
     }
     func animatedFieldAppear() {
@@ -182,14 +207,12 @@ struct AdopterSignUpView: View {
         }
         
         // ✅ If all is good:
-        errorMessage = nil
-        shouldNavigate = true
+            errorMessage = nil
+            shouldNavigate = true
     }
-
 }
-
 #Preview {
-    AdopterSignUpView()
-}
-
+        AdopterSignUpView()
+    }
+    
 
