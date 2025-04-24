@@ -37,6 +37,7 @@ While researching pet adoption, I noticed that many platforms are outdated, hard
 ## 🚧 Current Status
 
 Adoptly is in the **early stages of development**. I'm actively working on core UI components and user flows for adopters and shelters. This project is part of my learning journey in iOS development.
+This project will be private until MVP(Demo) is ready/.
 
 ---
 
@@ -67,6 +68,4 @@ I’m passionate about great UI, practical apps, and learning through building r
 
 ---
 
-## 📄 License
 
-MIT License — feel free to explore and learn from this project!
