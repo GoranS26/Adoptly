@@ -30,8 +30,6 @@ struct WelcomeScreenView: View {
                             }
                         }
                 }
-//                .ignoresSafeArea(edges: .bottom)
-                
                 VStack{
                     Text("ADOPTLY")
                         .foregroundStyle(.white)
@@ -42,14 +40,6 @@ struct WelcomeScreenView: View {
                     Image("pets")
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 550)
-//                        .padding(.bottom, -60)
-//                        .scaleEffect(pulsing ? 1.01 : 1)
-//                        .animation(Animation.easeInOut(duration: 0.6)
-//                                .repeatForever(autoreverses: true), value: pulsing)
-//                        .onAppear {
-//                            pulsing.toggle()
-//                        }
-                    
                     Text("""
                                Find your 
                          new best friend
@@ -69,13 +59,9 @@ struct WelcomeScreenView: View {
                                 .background(Color.blue.opacity(0.9))
                                 .cornerRadius(25)
                                 .shadow(color: .black, radius: 5)
-                                
                     }
                     .padding(.top, 75)
                     Spacer()
-//                    .padding(.top)
-//                    .padding(.bottom, 50) // Add extra bottom padding if necessary
-                    
                 }
             }
         }
@@ -84,9 +70,7 @@ struct WelcomeScreenView: View {
     
     struct AnimatedWave: Shape {
         
-        var yOffset: CGFloat // controls the wave height
-        
-        // This makes the shape animatable
+        var yOffset: CGFloat
         var animatableData: CGFloat {
             get { yOffset }
             set { yOffset = newValue }
