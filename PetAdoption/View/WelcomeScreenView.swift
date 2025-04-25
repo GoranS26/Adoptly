@@ -24,11 +24,11 @@ struct WelcomeScreenView: View {
                         .frame(height: 450)
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .ignoresSafeArea(edges: .bottom)
-                        .onAppear {
-                            withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
-                                waveOffset = 50
-                            }
-                        }
+//                        .onAppear {
+//                            withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
+//                                waveOffset = 50
+//                            }
+//                        }
                 }
                 VStack{
                     Text("ADOPTLY")

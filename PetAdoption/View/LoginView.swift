@@ -24,8 +24,7 @@ struct LoginView: View {
                 VStack(spacing: 20) {
                     Spacer()
                     Text("Who are you today")
-                        .font(.largeTitle)
-                        .fontDesign(.monospaced)
+                        .font(.system(size: 40, weight: .bold, design: .rounded))
                         .padding()
                         .foregroundStyle(.white)
                     Image("cutedog")
@@ -36,12 +35,11 @@ struct LoginView: View {
                     
                     //Email view
                     TextField("", text: $email, prompt:
-                                Text("Enter your email").foregroundStyle(.white).fontDesign(.monospaced))
+                                Text("Enter your email").foregroundStyle(.white).fontDesign(.rounded).fontWeight(.bold))
                     .foregroundStyle(.white)
                     .padding()
                     .textContentType(.emailAddress)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -49,17 +47,33 @@ struct LoginView: View {
                     
                     //Password view
                     SecureField("", text: $password, prompt:
-                                    Text("Enter your password").foregroundStyle(.white).fontDesign(.monospaced))
+                                    Text("Enter your password").foregroundStyle(.white).fontDesign(.rounded).fontWeight(.bold))
                     .padding()
                     .textContentType(.password)
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
                     )
                     .foregroundStyle(.white)
-                    .padding(.bottom)
+                    Button {
+                        
+                        //Login logic needs to happen
+                        
+                    } label: {
+                        Text("LOG IN".uppercased())
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(.white)
+                                .frame(width: 200, height: 50)
+                                .cornerRadius(25)
+                                .overlay(
+                                    Capsule().stroke(Color.white, lineWidth: 2)
+                                )
+                    }
+
+                    
                     
                     Divider()
                         .frame(width: 300, height: 2)
@@ -68,7 +82,8 @@ struct LoginView: View {
                     Text("Choose your account")
                         .font(.callout)
                         .foregroundStyle(.white)
-                        .fontDesign(.monospaced)
+                        .fontDesign(.rounded)
+                        .fontWeight(.bold)
                     
                     //Account picker view
                     Picker("Users", selection: $selectedUser){
@@ -81,7 +96,6 @@ struct LoginView: View {
                         }
                     }
                     .frame(width: 300, height: 50)
-                    .background(Color(.cyan).opacity(0.5))
                     .clipShape(Capsule())
                     .overlay(
                         Capsule().stroke(Color.white, lineWidth: 2)
@@ -92,11 +106,13 @@ struct LoginView: View {
                     
                     Text("Don't have account?")
                         .foregroundStyle(.white)
-                        .fontDesign(.monospaced)
+                        .fontDesign(.rounded)
+                        .fontWeight(.bold)
                     NavigationLink(destination: SignUpView()) {
                         Text("Sign up")
                             .foregroundStyle(.white)
-                            .fontDesign(.monospaced)
+                            .fontDesign(.rounded)
+                            .fontWeight(.bold)
                            
                     }
                     Spacer()
