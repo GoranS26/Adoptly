@@ -19,34 +19,33 @@ struct WelcomeScreenView: View {
             ZStack {
                 Color.blue.opacity(0.8).ignoresSafeArea()
                 VStack{
-                    AnimatedWave(yOffset: waveOffset)
-                        .fill(.white)
-                        .frame(height: 450)
-                        .frame(maxHeight: .infinity, alignment: .bottom)
-                        .ignoresSafeArea(edges: .bottom)
-//                        .onAppear {
-//                            withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
-//                                waveOffset = 50
-//                            }
-//                        }
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 25)
+                        .ignoresSafeArea()
+                        .frame(maxWidth: .infinity, maxHeight: 420)
+                        .padding(.horizontal, 56)
+                        .shadow(color: .black, radius: 12)
+                        .foregroundStyle(.white)
+                        
                 }
                 VStack{
                     Text("ADOPTLY")
                         .foregroundStyle(.white)
                         .font(.system(size: 50, weight: .bold, design: .rounded))
                         .padding(.top)
-                        .shadow(color: .black, radius: 5)
+                        .shadow(color: .black, radius: 15)
                     
                     Image("pets")
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 550)
+                        .shadow(color: .black, radius: 10)
                     Text("""
                                Find your 
                          new best friend
                          """)
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .foregroundStyle(.blue)
-                    .shadow(color: .black, radius: 1)
+                    .shadow(color: .black, radius: 0.4)
                     Spacer()
                     NavigationLink(destination: IntroductionView()){
                         Text("Get Started".uppercased())
@@ -60,38 +59,13 @@ struct WelcomeScreenView: View {
                                 .cornerRadius(25)
                                 .shadow(color: .black, radius: 5)
                     }
-                    .padding(.top, 75)
+                    .padding(.top, 50)
                     Spacer()
                 }
+                Spacer()
             }
         }
         .navigationBarBackButtonHidden(true)
-    }
-    
-    struct AnimatedWave: Shape {
-        
-        var yOffset: CGFloat
-        var animatableData: CGFloat {
-            get { yOffset }
-            set { yOffset = newValue }
-        }
-        
-        func path(in rect: CGRect) -> Path {
-            var path = Path()
-            
-            path.move(to: CGPoint(x: 0, y: rect.height))
-            path.addLine(to: CGPoint(x: 0, y: 100))
-            
-            
-            path.addCurve(to: CGPoint(x: rect.width, y: 75 - yOffset),
-                          control1: CGPoint(x: rect.width * 0.50, y: 50 - yOffset),
-                          control2: CGPoint(x: rect.width * 0.75, y: 50 + yOffset))
-            
-            path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-            path.closeSubpath()
-            
-            return path
-        }
     }
 }
 

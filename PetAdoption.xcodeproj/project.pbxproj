@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		531652B42DBBEA8C0047D3AB /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 531652B32DBBEA8C0047D3AB /* SplineRuntime */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		53F4F0782D0CD28400C8B17F /* PetAdoption.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetAdoption.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531652B42DBBEA8C0047D3AB /* SplineRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,7 @@
 			);
 			name = PetAdoption;
 			packageProductDependencies = (
+				531652B32DBBEA8C0047D3AB /* SplineRuntime */,
 			);
 			productName = PetAdoption;
 			productReference = 53F4F0782D0CD28400C8B17F /* PetAdoption.app */;
@@ -108,6 +114,9 @@
 			);
 			mainGroup = 53F4F06F2D0CD28400C8B17F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				531652B22DBBEA8C0047D3AB /* XCRemoteSwiftPackageReference "spline-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53F4F0792D0CD28400C8B17F /* Products */;
 			projectDirPath = "";
@@ -263,6 +272,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PetAdoption/Preview Content\"";
@@ -293,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PetAdoption/Preview Content\"";
@@ -340,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		531652B22DBBEA8C0047D3AB /* XCRemoteSwiftPackageReference "spline-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/splinetool/spline-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		531652B32DBBEA8C0047D3AB /* SplineRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 531652B22DBBEA8C0047D3AB /* XCRemoteSwiftPackageReference "spline-ios" */;
+			productName = SplineRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53F4F0702D0CD28400C8B17F /* Project object */;
 }
