@@ -15,7 +15,7 @@ struct SignUpView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.cyan.opacity(0.8).ignoresSafeArea()
+                Color.blue.opacity(0.8).ignoresSafeArea()
                 VStack{
                     Spacer()
                     Text("Create new account")

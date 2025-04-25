@@ -20,10 +20,10 @@ struct LoginView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.cyan.opacity(0.8).ignoresSafeArea()
+                Color.blue.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
                     Spacer()
-                    Text("Please Login")
+                    Text("Who are you today")
                         .font(.largeTitle)
                         .fontDesign(.monospaced)
                         .padding()

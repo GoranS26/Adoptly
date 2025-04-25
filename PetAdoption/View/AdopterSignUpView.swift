@@ -30,13 +30,13 @@ struct AdopterSignUpView: View {
     var body: some View {
         NavigationStack{
             ZStack {
-//                Color.blue.opacity(0.8).ignoresSafeArea()
-                LinearGradient(
-                    gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                    )
-                .ignoresSafeArea()
+                Color.blue.opacity(0.8).ignoresSafeArea()
+//                LinearGradient(
+//                    gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]),
+//                    startPoint: .top,
+//                    endPoint: .bottom
+//                    )
+//                .ignoresSafeArea()
                     
                 Divider()
                     .frame(width: .infinity, height: 5)

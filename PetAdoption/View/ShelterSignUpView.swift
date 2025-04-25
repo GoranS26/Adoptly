@@ -15,7 +15,7 @@ struct ShelterSignUpView: View {
     
     var body: some View {
         ZStack{
-            Color.cyan.opacity(0.8).edgesIgnoringSafeArea(.all)
+            Color.blue.opacity(0.8).edgesIgnoringSafeArea(.all)
             VStack{
                 Text("Shelter Sign Up")
                     .font(.largeTitle)

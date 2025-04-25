@@ -15,14 +15,27 @@ struct WelcomeScreenView: View {
     var body: some View {
         NavigationStack{
             ZStack {
-                Image("background")
-                    .resizable()
-                    .ignoresSafeArea()
+                Color.blue.opacity(0.8).ignoresSafeArea()
+                VStack{
+                    Image("background4")
+                        .resizable()
+                        .scaledToFit()
+                        .ignoresSafeArea()
+                    ZStack{
+                        Image("background4")
+                            .resizable()
+                            .scaledToFit()
+                            .ignoresSafeArea()
+                    }
+                }
+                .padding(.trailing, 50)
+                
                 VStack{
                     Text("ADOPTLY")
-                        .font(.system(size: 30, weight: .heavy, design: .rounded))
                         .foregroundStyle(.white)
-                        .padding(.top, 50)
+                        .font(.system(size: 50, weight: .bold, design: .rounded))
+                        .padding(.top)
+                        .shadow(color: .black, radius: 2)
                     
                     Image("pets")
                         .aspectRatio(contentMode: .fill)
@@ -50,9 +63,9 @@ struct WelcomeScreenView: View {
                                 .foregroundStyle(.white)
                                 .padding()
                                 .frame(width: 250, height: 50)
-                                .background(Color.cyan.opacity(0.8))
+                                .background(Color.blue.opacity(0.9))
                                 .cornerRadius(25)
-                                .shadow(radius: 10)
+                                .shadow(color: .black, radius: 10)
                                 
                     }
                     .padding(.top, 75)

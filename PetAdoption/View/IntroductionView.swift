@@ -14,15 +14,16 @@ struct IntroductionView: View {
     @State private var navigate = false
     @State private var offset: CGFloat = 0
     
+    
     var body: some View {
         NavigationStack{
             ZStack {
-                Color.cyan.opacity(0.8).ignoresSafeArea()
+                Color.blue.opacity(0.8).ignoresSafeArea()
                 VStack {
-                    NavigationLink(destination: LoginView(), isActive: $navigate) {
-                        EmptyView()
-                    }
-                    .hidden()
+//                    NavigationLink(destination: LoginView(), isActive: $navigate) {
+//                        EmptyView()
+//                    }
+//                    .hidden()
                     TabView(selection: $selectedPage) {
                         VStack {
                             Text("Welcome to Adoptly!")
@@ -52,38 +53,47 @@ struct IntroductionView: View {
                         }
                         .tag(1)
                         
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 50)
-                                .fill(Color.cyan.opacity(0.5))
-                                .frame(width: 250, height: 100)
-                                .overlay(
-                                    VStack(spacing: 10){
-                                        Text("Swipe me to start")
-                                            .font(.title2)
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.white)
-                                        Image(systemName: "arrow.backward")
-                                            .foregroundStyle(.white)
-                                    }
-                                )
-                                .offset(x: offset)
-                                .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: offset)
-                                .onAppear {
-                                    offset = 20
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        offset = -20
-                                    }
-                                }
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: 50)
+//                                .fill(Color.cyan.opacity(0.5))
+//                                .frame(width: 250, height: 100)
+//                                .overlay(
+//                                    VStack(spacing: 10){
+//                                        Text("Swipe me to start")
+//                                            .font(.title2)
+//                                            .fontWeight(.semibold)
+//                                            .foregroundColor(.white)
+//                                        Image(systemName: "arrow.backward")
+//                                            .foregroundStyle(.white)
+//                                    }
+//                                )
+//                                .offset(x: offset)
+//                                .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: offset)
+//                                .onAppear {
+//                                    offset = 20
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                                        offset = -20
+//                                    }
+//                                }
+//                        }
+//                        .tag(2)
+//                        .gesture(
+//                            DragGesture()
+//                                .onEnded { value in
+//                                    if value.translation.width < -100 {
+//                                        navigate = true
+//                                    }
+//                                }
+//                        )
+                        VStack{
+                            SlideButtonView(navigate: $navigate)
+                            NavigationLink(destination: LoginView(), isActive: $navigate){
+                                EmptyView()
+                            }
+                            .tag(2)
+                            Spacer()
                         }
-                        .tag(2)
-                        .gesture(
-                            DragGesture()
-                                .onEnded { value in
-                                    if value.translation.width < -100 {
-                                        navigate = true
-                                    }
-                                }
-                        )
+                        
                     }
                     .tabViewStyle(.page)
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
