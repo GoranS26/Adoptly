@@ -13,7 +13,7 @@ struct WelcomeScreenView: View {
     @State private var waveOffset: CGFloat = 10
     @State private var titleOpacity = 0.0
     @State private var subtitleOpacity = 0.0
-    @State private var logoOpacity = 0.0  // Added state for logo opacity
+    @State private var logoOpacity = 0.0
     
     var body: some View {
         NavigationStack {
@@ -22,7 +22,6 @@ struct WelcomeScreenView: View {
                 
                 VStack {
                     Spacer()
-                    
                     // Main card background
                     RoundedRectangle(cornerRadius: 25)
                         .ignoresSafeArea()
@@ -30,7 +29,7 @@ struct WelcomeScreenView: View {
                         .padding(.horizontal, 56)
                         .shadow(color: .black, radius: 12)
                         .foregroundStyle(.white)
-                        .scaleEffect(pulsing ? 1.05 : 1)
+                        .scaleEffect(pulsing ? 1.0 : 1)
                         .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true), value: pulsing)
                 }
                 
@@ -47,6 +46,17 @@ struct WelcomeScreenView: View {
                                 titleOpacity = 1.0
                             }
                         }
+                    Text("THE FUTURE OF PET CONNECTION")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                        .padding(.top)
+                        .shadow(color: .black, radius: 15)
+                        .opacity(titleOpacity)
+                        .onAppear {
+                            withAnimation(.easeIn(duration: 1).delay(0.2)) {
+                                titleOpacity = 1.0
+                            }
+                        }
                     
                     // Logo image with fade-in and pulse animation
                     Image("pets")
@@ -55,7 +65,7 @@ struct WelcomeScreenView: View {
                         .frame(width: 550)
                         .clipped()
                         .shadow(color: .black, radius: 10)
-                        .scaleEffect(pulsing ? 1.05 : 1)
+                        .scaleEffect(pulsing ? 1.02 : 1)
                         .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true), value: pulsing)
                         .opacity(logoOpacity) // Add opacity for fade-in effect
                         .onAppear {
@@ -64,7 +74,7 @@ struct WelcomeScreenView: View {
                             }
                         }
                     
-                    // Subtitle with animation
+                    
                     Text("""
                         Meet your new bestie
                         at a shelter near you!

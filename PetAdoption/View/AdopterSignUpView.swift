@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct AdopterSignUpView: View {
-    //Animation
     
+    //Animation
     @State private var nameAppear: Bool = false
     @State private var emailAppear: Bool = false
     @State private var passwordAppear: Bool = false
     @State private var repeatPasswordAppear: Bool = false
     @State private var signUpButtonAppear: Bool = false
-    //Error handling
     
+    //Error handling
     @State private var errorMessage: String? = nil
     @State private var showAlert = false
     @State private var shouldNavigate = false
-    //User input
     
+    //User input
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
@@ -31,29 +31,24 @@ struct AdopterSignUpView: View {
         NavigationStack{
             ZStack {
                 Color.blue.opacity(0.8).ignoresSafeArea()
-//                LinearGradient(
-//                    gradient: Gradient(colors: [.blue, .blue.opacity(0.5)]),
-//                    startPoint: .top,
-//                    endPoint: .bottom
-//                    )
-//                .ignoresSafeArea()
-                    
-                Divider()
-                    .frame(width: .infinity, height: 5)
-                    .background(Color.black)
-                    .padding(.bottom, 120)
-                    .shadow(color: .black, radius: 5)
-                VStack {
+                VStack{
                     Text("Adopter Sign Up")
                         .foregroundStyle(.white)
                         .font(.system(size: 40, weight: .bold, design: .rounded))
                         .padding(.top)
                         .shadow(color: .black, radius: 2)
-                    Image("cutecat")
-                        .resizable()
-                        .scaledToFit()
-                        .shadow(color: .black, radius: 5)
-                    Spacer()
+                    ZStack{
+                        Image("cutecat")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 350)
+                            .shadow(color: .black, radius: 5)
+                        Divider()
+                            .frame(width: .infinity, height: 5)
+                            .background(Color.black)
+                            .offset(y: 78)
+                            .shadow(color: .black, radius: 5)
+                    }
                     
                     // Name Field
                     TextField("", text: $name, prompt:
@@ -146,8 +141,10 @@ struct AdopterSignUpView: View {
                             animatedFieldAppear()
                             
                  }
+                   
                     
                 }
+                Spacer()
                 
             }
             .alert("Error", isPresented: $showAlert, actions: {

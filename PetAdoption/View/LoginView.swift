@@ -27,12 +27,23 @@ struct LoginView: View {
                         .font(.system(size: 40, weight: .bold, design: .rounded))
                         .padding()
                         .foregroundStyle(.white)
-                    Image("cutedog")
-                        .frame(width: 300, height: 150)
-                        .padding(.leading, 35)
-                        .padding(.top, 50)
-                    Spacer()
+                        .shadow(color: .black, radius: 5)
                     
+                    ZStack{
+                        Image("cutedog")
+                            .frame(width: 300, height: 150)
+                            .padding(.leading, 35)
+                            .padding(.top, 50)
+                            .shadow(color: .black, radius: 5)
+                        Divider()
+                            .frame(width: .infinity, height: 5)
+                            .background(Color.black)
+                            .shadow(color: .black, radius: 5)
+                            .padding(.top, 170)
+                    }
+                    
+                    
+                    Spacer()
                     //Email view
                     TextField("", text: $email, prompt:
                                 Text("Enter your email").foregroundStyle(.white).fontDesign(.rounded).fontWeight(.bold))
