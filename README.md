@@ -54,6 +54,7 @@ This project will be private until MVP(Demo) is ready/.
 - Building larger-scale apps
 - Planning app structure and scaling
 - Clean, readable code & UI design
+- Cool adpative animations
 
 ---
 
