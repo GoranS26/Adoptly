@@ -161,21 +161,24 @@ struct IntroductionView: View {
                             icon: "star.circle.fill",
                             iconColor: .orange
                         ).tag(3)
-
+                        
                         VStack {
+                            Spacer()
                             introPageView(
                                 title: "🌍 Adopt, Don’t Shop",
                                 subtitle: "Give shelter pets a second chance and make the world better 🐾",
                                 icon: "globe.americas.fill",
                                 iconColor: .teal
                             )
+                            Spacer()
                             SlideButtonView(navigate: $navigate)
-                                .padding(.top, 40)  // Adjusted to give more space
+                                .padding(.bottom, 70)  // Adjusted to give more space
 
                             NavigationLink(destination: LoginView(), isActive: $navigate) {
                                 EmptyView()
                             }
                         }
+                        .padding(.top, 130)
                         .tag(4)
                     }
                     .tabViewStyle(.page)
@@ -238,7 +241,7 @@ struct IntroductionView: View {
                 .fill(Color.white.opacity(0.15))
                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
         )
-        .padding(.horizontal)
+//        .padding(.horizontal)
     }
 }
 
