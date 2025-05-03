@@ -184,29 +184,41 @@ struct AdopterSignUpView: View {
             showAlert = true
             return
         }
-        
+
         if !email.contains("@") || !email.contains(".") {
             errorMessage = "Please enter a valid email address"
             showAlert = true
             return
         }
-        
+
         if password.count < 8 {
-            errorMessage = "Password must be at least 8 characters long"
+            errorMessage = "Password must be at least 8 characters"
             showAlert = true
             return
         }
-        
+
         if password != repeatPassword {
             errorMessage = "Passwords do not match"
             showAlert = true
             return
         }
-        
-        // ✅ If all is good:
-            errorMessage = nil
-            shouldNavigate = true
+
+        // 🧠 Firebase sign up
+        AuthService.shared.signUp(email: email, password: password, name: name) { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    shouldNavigate = true
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    errorMessage = error.localizedDescription
+                    showAlert = true
+                }
+            }
+        }
     }
+
 }
 #Preview {
         AdopterSignUpView()

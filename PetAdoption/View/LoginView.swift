@@ -23,8 +23,8 @@ struct LoginView: View {
                 Color.blue.opacity(0.8).ignoresSafeArea()
                 VStack(spacing: 20) {
                     Spacer()
-                    Text("Who are you today")
-                        .font(.system(size: 40, weight: .bold, design: .rounded))
+                    Text("Ready for a new friend?")
+                        .font(.system(size: 35, weight: .bold, design: .rounded))
                         .padding()
                         .foregroundStyle(.white)
                         .shadow(color: .black, radius: 5)
@@ -33,7 +33,7 @@ struct LoginView: View {
                         Image("cutedog")
                             .frame(width: 300, height: 150)
                             .padding(.leading, 35)
-                            .padding(.top, 50)
+                            .padding(.top, 52)
                             .shadow(color: .black, radius: 5)
                         Divider()
                             .frame(width: .infinity, height: 5)
@@ -90,36 +90,36 @@ struct LoginView: View {
                         .frame(width: 300, height: 2)
                         .background(Color.white)
                         
-                    Text("Choose your account")
-                        .font(.callout)
-                        .foregroundStyle(.white)
-                        .fontDesign(.rounded)
-                        .fontWeight(.bold)
-                    
-                    //Account picker view
-                    Picker("Users", selection: $selectedUser){
-                        ForEach(users, id: \.role){ user in
-                            HStack(spacing: 10){
-                                Image(systemName: user.symbol)
-                                Text(user.role)
-                                    
-                            }
-                        }
-                    }
-                    .frame(width: 300, height: 50)
-                    .clipShape(Capsule())
-                    .overlay(
-                        Capsule().stroke(Color.white, lineWidth: 2)
-                    )
-                    .pickerStyle(MenuPickerStyle())
-                    .tint(.white)
+//                    Text("Choose your account")
+//                        .font(.callout)
+//                        .foregroundStyle(.white)
+//                        .fontDesign(.rounded)
+//                        .fontWeight(.bold)
+//                    
+//                    //Account picker view
+//                    Picker("Users", selection: $selectedUser){
+//                        ForEach(users, id: \.role){ user in
+//                            HStack(spacing: 10){
+//                                Image(systemName: user.symbol)
+//                                Text(user.role)
+//                                    
+//                            }
+//                        }
+//                    }
+//                    .frame(width: 300, height: 50)
+//                    .clipShape(Capsule())
+//                    .overlay(
+//                        Capsule().stroke(Color.white, lineWidth: 2)
+//                    )
+//                    .pickerStyle(MenuPickerStyle())
+//                    .tint(.white)
                     
                     
                     Text("Don't have account?")
                         .foregroundStyle(.white)
                         .fontDesign(.rounded)
                         .fontWeight(.bold)
-                    NavigationLink(destination: SignUpView()) {
+                    NavigationLink(destination: AdopterSignUpView()) {
                         Text("Sign up")
                             .foregroundStyle(.white)
                             .fontDesign(.rounded)
