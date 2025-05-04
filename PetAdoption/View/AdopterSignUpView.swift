@@ -133,7 +133,7 @@ struct AdopterSignUpView: View {
                             .animation(.easeInOut(duration: 1.1), value: signUpButtonAppear)
                         
                     }
-                    NavigationLink(destination: AdopterPovView(), isActive: $shouldNavigate){
+                    NavigationLink(destination: AdopterDashboardView(), isActive: $shouldNavigate){
                         EmptyView()
                     }
                     Spacer()
