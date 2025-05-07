@@ -127,7 +127,6 @@ struct AdopterDashboardView: View {
                         .frame(maxWidth: .infinity)
                     }
                     .scrollIndicators(.hidden)
-
                     Spacer()
                 }
                 .padding(.horizontal)
