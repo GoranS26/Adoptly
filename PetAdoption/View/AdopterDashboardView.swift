@@ -115,7 +115,7 @@ struct AdopterDashboardView: View {
                                     }) {
                                         Image(systemName: favorites[pet.id] ?? false ? "heart.fill" : "heart")
                                             .foregroundColor(.blue)
-                                            .padding(8)
+                                            .padding(7)
                                             .background(Color.white.opacity(0.9))
                                             .clipShape(Circle())
                                     }
@@ -123,11 +123,13 @@ struct AdopterDashboardView: View {
                                 }
                             }
                         }
-                        .padding()
+//                        .padding()
+//                        .clipped()
                         .frame(maxWidth: .infinity)
                     }
+                    .padding(.bottom, 50)
                     .scrollIndicators(.hidden)
-                    Spacer()
+//                    Spacer()
                 }
                 .padding(.horizontal)
             }
