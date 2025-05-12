@@ -11,15 +11,16 @@ struct AdopterDashboardView: View {
     @State private var selectedBreed: String? = nil
     @State private var favorites: [UUID: Bool] = [:]
 
-    private var availablePets: [Pet] {
-        return [
-            Pet(name: "Bella", breed: "Golden Retriever", age: "Age: 3", imageName: "golden_retriever"),
-            Pet(name: "Charlie", breed: "Beagle", age: "Age: 5", imageName: "beagle"),
-            Pet(name: "Luna", breed: "German Shepherd", age: "Age: 2", imageName: "german_shepard"),
-            Pet(name: "Max", breed: "Bulldog", age: "Age: 4", imageName: "bulldog"),
-            Pet(name: "Lucy", breed: "Poodle", age: "Age: 3", imageName: "poodle")
-        ]
-    }
+    @State private var availablePets: [Pet] = [
+        Pet(id: UUID(uuidString: "3F2504E0-4F89-11D3-9A0C-0305E82C3301")!, name: "Bella", breed: "Golden Retriever", age: "Age: 3", imageName: "golden_retriever"),
+        Pet(id: UUID(uuidString: "3F2504E0-4F89-11D3-9A0C-0305E82C3302")!, name: "Charlie", breed: "Beagle", age: "Age: 5", imageName: "beagle"),
+        Pet(id: UUID(uuidString: "3F2504E0-4F89-11D3-9A0C-0305E82C3303")!, name: "Luna", breed: "German Shepherd", age: "Age: 2", imageName: "german_shepard"),
+        Pet(id: UUID(uuidString: "3F2504E0-4F89-11D3-9A0C-0305E82C3304")!, name: "Max", breed: "Bulldog", age: "Age: 4", imageName: "bulldog"),
+        Pet(id: UUID(uuidString: "3F2504E0-4F89-11D3-9A0C-0305E82C3305")!, name: "Lucy", breed: "Poodle", age: "Age: 3", imageName: "poodle")
+    ]
+
+
+
 
     private var filteredPets: [Pet] {
         if let breed = selectedBreed, !breed.isEmpty {
@@ -31,8 +32,8 @@ struct AdopterDashboardView: View {
     }
 
     let columns = [
-        GridItem(.flexible(), spacing: 50),
-        GridItem(.flexible(), spacing: 50)
+        GridItem(.flexible(), spacing: 15),
+        GridItem(.flexible(), spacing: 15)
     ]
 
     var body: some View {
@@ -80,7 +81,7 @@ struct AdopterDashboardView: View {
 
                     // Grid of Pets
                     ScrollView {
-                        LazyVGrid(columns: columns, spacing: 20) {
+                        LazyVGrid(columns: columns, spacing: 15) {
                             ForEach(filteredPets) { pet in
                                 ZStack(alignment: .topTrailing) {
                                     NavigationLink(destination: PetDetailView(pet: pet)) {
@@ -114,7 +115,7 @@ struct AdopterDashboardView: View {
                                         favorites[pet.id] = !(favorites[pet.id] ?? false)
                                     }) {
                                         Image(systemName: favorites[pet.id] ?? false ? "heart.fill" : "heart")
-                                            .foregroundColor(.blue)
+                                            .foregroundColor(.pink)
                                             .padding(7)
                                             .background(Color.white.opacity(0.9))
                                             .clipShape(Circle())
@@ -127,8 +128,9 @@ struct AdopterDashboardView: View {
 //                        .clipped()
                         .frame(maxWidth: .infinity)
                     }
-                    .padding(.bottom, 50)
+//                    .padding(.bottom, 50)
                     .scrollIndicators(.hidden)
+//                    .ignoresSafeArea(.bottom)
 //                    Spacer()
                 }
                 .padding(.horizontal)
@@ -142,48 +144,89 @@ struct PetDetailView: View {
     var pet: Pet
 
     var body: some View {
-        VStack {
-            Image(pet.imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: .infinity, maxHeight: 300)
-                .cornerRadius(15)
-
-            Text(pet.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top, 20)
-
-            Text(pet.breed)
-                .font(.title2)
-                .foregroundColor(.gray)
+        
+        ZStack {
+            Color.blue.opacity(0.8).ignoresSafeArea()
+            VStack{
+                Spacer()
+                RoundedRectangle(cornerRadius: 25)
+                    .ignoresSafeArea()
+                    .frame(maxWidth: .infinity, maxHeight: 450)
+//                    .padding(.horizontal, 56)
+                    .shadow(color: .black, radius: 12)
+                    .foregroundStyle(.white)
                 
+            }
             
-            Text(pet.age)
-                .font(.title2)
-                .foregroundColor(.gray)
-                .padding(.bottom, 20)
-
-            Text("More information about \(pet.name) will go here.")
-                .font(.title3)
-                .foregroundColor(.gray)
-                .padding(.horizontal)
-
-            Spacer()
+            VStack {
+                Image(pet.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .cornerRadius(15)
+                    .clipShape(Circle())
+                    .shadow(color: .black, radius: 5)
+                
+                Text(pet.name)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top, 20)
+                    .foregroundStyle(.white)
+                    .shadow(color: .black, radius: 5)
+                
+                Text(pet.breed)
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .shadow(color: .black, radius: 7)
+                
+                
+                Text(pet.age)
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 40)
+                    .shadow(color: .black, radius: 7)
+                
+                Text("\(pet.name) is very friendly, playful and happy \(pet.breed).\n If you want to adopt beautiful \(pet.name) please proceed with the button below.\n Thank you!")
+                    .multilineTextAlignment(.center)
+                    .font(.title3)
+                    .foregroundColor(.blue)
+                    .padding()
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("Adopt Me".uppercased())
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .frame(width: 250, height: 50)
+                        .background(Color.blue.opacity(0.9))
+                        .cornerRadius(25)
+                        .shadow(color: .black, radius: 5)
+                }
+            }
+            .navigationTitle("\(pet.name)'s profile")
+            
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(pet.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct Pet: Identifiable {
-    var id = UUID()
+    var id: UUID
     var name: String
     var breed: String
     var age: String
     var imageName: String
 }
 
+
 #Preview {
     AdopterDashboardView()
 }
+
+

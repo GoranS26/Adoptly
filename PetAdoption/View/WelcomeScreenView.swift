@@ -25,7 +25,7 @@ struct WelcomeScreenView: View {
                     // Main card background
                     RoundedRectangle(cornerRadius: 25)
                         .ignoresSafeArea()
-                        .frame(maxWidth: .infinity, maxHeight: 420)
+                        .frame(maxWidth: .infinity, maxHeight: 450)
                         .padding(.horizontal, 56)
                         .shadow(color: .black, radius: 12)
                         .foregroundStyle(.white)

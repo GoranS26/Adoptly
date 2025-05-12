@@ -118,7 +118,7 @@ struct AdopterSignUpView: View {
                     Button {
                         validateSignUp()
                     } label: {
-                        Text("Sign Up")
+                        Text("SIGN UP")
                             .font(.title3)
                             .foregroundStyle(.cyan)
                             .fontDesign(.monospaced)
